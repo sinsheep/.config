@@ -8,6 +8,9 @@
 # -----------------------------------------------------------------------------
 
 from __future__ import (absolute_import, division, print_function)
+from ranger.ext.get_executables import get_executables
+from ranger.container.file import File
+import subprocess
 from ranger.core.loader import CommandLoader
 
 # You can import any python module as needed.
@@ -163,3 +166,74 @@ class compress(Command):
 
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
         return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+
+# extract file
+
+
+class extract(Command):
+    """:extract <paths>
+    Extract archives
+    """
+
+    def execute(self):
+        import os
+        fail = []
+        for i in self.fm.thistab.get_selection():
+            ExtractProg = '7z x'
+            if i.path.endswith('.zip'):
+                # zip encoding issue
+                ExtractProg = 'unzip -O gbk'
+            elif i.path.endswith('.tar.gz'):
+                ExtractProg = 'tar xvf'
+            elif i.path.endswith('.tar.xz'):
+                ExtractProg = 'tar xJvf'
+            elif i.path.endswith('.tar.bz2'):
+                ExtractProg = 'tar xjvf'
+            if os.system('{0} "{1}"'.format(ExtractProg, i.path)):
+                fail.append(i.path)
+        if len(fail) > 0:
+            self.fm.notify("Fail to extract: {0}".format(
+                ' '.join(fail)), duration=10, bad=True)
+        self.fm.redraw_window()
+
+# yank filecontent to xclip
+
+
+class YankContent(Command):
+    """
+    Copy the content of image file and text file with xclip
+    """
+
+    def execute(self):
+        if 'xclip' not in get_executables():
+            self.fm.notify('xclip is not found.', bad=True)
+            return
+
+        arg = self.rest(1)
+        if arg:
+            if not os.path.isfile(arg):
+                self.fm.notify('{} is not a file.'.format(arg))
+                return
+            file = File(arg)
+        else:
+            file = self.fm.thisfile
+            if not file.is_file:
+                self.fm.notify('{} is not a file.'.format(file.relative_path))
+                return
+
+        relative_path = file.relative_path
+        cmd = ['xclip', '-selection', 'clipboard']
+        if not file.is_binary():
+            with open(file.path, 'rb') as fd:
+                subprocess.check_call(cmd, stdin=fd)
+        elif file.image:
+            cmd += ['-t', file.mimetype, file.path]
+            subprocess.check_call(cmd)
+            self.fm.notify(
+                'Content of {} is copied to x clipboard'.format(relative_path))
+        else:
+            self.fm.notify(
+                '{} is not an image file or a text file.'.format(relative_path))
+
+    def tab(self, tabnum):
+        return self._tab_directory_content()
