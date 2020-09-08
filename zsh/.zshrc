@@ -70,15 +70,17 @@ export FZF_DEFAULT_COMMAND=''
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# bindkey ',' autosuggest-accept
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump)
+
+source $ZSH/oh-my-zsh.sh
+
 bindkey '\e[1;3D' backward-word       # ALT+左键：向后跳一个单词
 bindkey '\e[1;3C' forward-word        # ALT+右键：前跳一个单词
 bindkey '\e[1;3A' beginning-of-line   # ALT+上键：跳到行首
 bindkey '\e[1;3B' end-of-line         # ALT+下键：调到行尾
 bindkey -s '\eo'   'cd ..\n'  
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump)
-
-source $ZSH/oh-my-zsh.sh
-
+bindkey ',' autosuggest-accept
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
