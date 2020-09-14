@@ -1,4 +1,5 @@
 alias vim='nvim'
+alias v='vim'
 alias s='neofetch'
 alias ra='ranger'
 alias lg='lazygit'
