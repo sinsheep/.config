@@ -53,11 +53,11 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Weather Icons:size=12;0
+font-2 = siji:pixelsize=10;1
 font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Brands:pixelsize=12;2
-font-6 = siji:pixelsize=10;1
+font-6 = Weather Icons:size=12;0
 
 modules-left = i3
 modules-center = xwindow pacmanUpdate
@@ -108,7 +108,7 @@ interval = 25
 
 mount-0 = /home
 
-label-mounted = %free% 
+label-mounted =   %free% 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -273,7 +273,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -393,7 +393,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = " "
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
