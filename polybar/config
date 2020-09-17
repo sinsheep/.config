@@ -53,13 +53,14 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-2 = Weather Icons:size=12;0
 font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Brands:pixelsize=12;2
+font-6 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = xwindow
+modules-center = xwindow pacmanUpdate
 modules-right = filesystem alsa xkeyboard memory cpu wlan battery temperature date powermenu
 
 separator=|
@@ -414,8 +415,24 @@ menu-0-1-exec = systemctl poweroff
 ; menu-2-1 = cancel
 ; menu-2-1-exec = menu-open-0
 
-[module/pacmanUpdate]
 
+; custom-module
+[module/weather]
+type = custom/script
+exec = .config/polybar/script/polybar-forecast
+exec-if = ping openweathermap.org -c 1
+interval = 600
+label-font = 3
+
+[module/pacmanUpdate]
+type = custom/script
+exec = checkupdates | wc -l
+interval = 1000
+label = Updates: %output%
+format.forground = ${colors.foreground}
+format.background = ${colors.backgroun}
+format-prefix = " "
+format-prefix-foreground = #ffbb00
 
 
 [settings]
