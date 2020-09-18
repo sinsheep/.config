@@ -1,10 +1,6 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec_always --no-startup-id compton -b
-exec_always --no-startup-id albert
-exec_always --no-startup-id feh --randomize --bg-fill ~/myBackground
-exec_always --no-startup-id . ~/.config/polybar/launch.sh
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -296,11 +292,17 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id compton -b
+exec_always --no-startup-id albert
+exec_always feh --randomize --bg-fill ~/myBackground
+exec_always . ~/.config/polybar/launch.sh
+exec_always . ~/.screenlayout/onlyone.sh
+exec --no-startup-id xset s 0
+exec_always --no-startup-id xmodmap ~/.xmodmaprc
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
+# https://i3wm.org/docs/userguide.html#xresources Change the variable name at the place you want to match the color
 # of your terminal like this:
 # [example]
 # If you want your bar to have the same background color as your 
@@ -429,3 +431,4 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
