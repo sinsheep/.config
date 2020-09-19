@@ -16,6 +16,9 @@
 ;
 ;==========================================================
 
+
+
+
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #CC222222
@@ -58,7 +61,7 @@ font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Weather Icons:size=12;0
 font-6 = Font Awesome 5 Brands:pixelsize=12;2
-modules-left = i3  pacmanUpdate
+modules-left = i3 
 modules-center = xwindow 
 modules-right = openweathermap-detailed filesystem alsa xkeyboard memory cpu wlan battery temperature date powermenu
 
@@ -70,7 +73,7 @@ tray-padding = 2
 ;wm-restack = bspwm
 ;wm-restack = i3
 
-;override-redirect = true
+; override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -337,7 +340,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
+full-at = 100
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
