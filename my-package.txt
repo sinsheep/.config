@@ -1,0 +1,7 @@
+zsh
+neovim
+tmux
+lazygit
+alacritty
+nodejs
+yay

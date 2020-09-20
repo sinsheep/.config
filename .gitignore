@@ -1,0 +1,17 @@
+# ignore everything
+/*
+/*/
+
+
+# but ... these
+!/.i3/
+!/polybar
+!/ranger/
+!/kitty/
+!/alacritty/
+!/picom.conf
+!/tmux/
+!/.gitignore
+!/my-package.txt
+
+

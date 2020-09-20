@@ -290,7 +290,7 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id compton -b
@@ -299,8 +299,6 @@ exec_always feh --randomize --bg-fill ~/myBackground
 exec_always . ~/.config/polybar/launch.sh
 exec_always . ~/.screenlayout/onlyone.sh
 exec --no-startup-id xset s 0
-exec_always --no-startup-id xmodmap ~/.xmodmaprc
-
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources Change the variable name at the place you want to match the color
@@ -383,7 +381,7 @@ bindsym $mod+o exec ~/Downloads/electron-ssr-0.2.722.appimage
 # gaps inner 14
 # gaps outer -2
 gaps inner 5
-gaps outer -2
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
