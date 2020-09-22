@@ -105,3 +105,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.config/zsh/bindkey.zsh
 source ~/.config/zsh/alias.zsh
+# env WINEPREFIX="$HOME/.deepinwine/Deepin-TIM" wine "c:\\Program Files\\Tencent\\TIM\\Bin\\TIM.exe"

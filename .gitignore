@@ -5,6 +5,7 @@
 
 # but ... these
 !/.i3/
+!/zsh/
 !/polybar
 !/ranger/
 !/kitty/
