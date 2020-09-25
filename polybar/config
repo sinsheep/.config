@@ -226,7 +226,8 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 ; label = RAM %gb_used%/%percentage_used%%
-label=%percentage_used%%/%gb_used%
+; label=%percentage_used%%/%gb_used%
+label=%percentage_used%%
 
 [module/wlan]
 type = internal/network
