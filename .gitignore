@@ -14,5 +14,5 @@
 !/tmux/
 !/.gitignore
 !/my-package.txt
-
+!/.screenlayout/
 
