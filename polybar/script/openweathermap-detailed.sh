@@ -42,7 +42,7 @@ get_icon() {
 }
 
 KEY="73189baa6a2b22d8cf395ea37aa8fda9"
-CITY="Wenzhou"
+CITY="Hangzhou"
 UNITS="metric"
 SYMBOL="°"
 
